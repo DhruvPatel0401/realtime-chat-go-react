@@ -1,16 +1,25 @@
-function MyButton() {
-  return (
-    <button>
-      I am a button
-    </button>
-  )
+import React, { Component } from "react";
+import "./App.css";
+import { connect, sendMsg } from "./api";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    connect();
+  }
+
+  send() {
+    console.log("hello");
+    sendMsg("hello");
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <button onClick={this.send}>Hit</button>
+      </div>
+    );
+  }
 }
 
-export default function MyApp() {
-  return (
-    <div>
-      <h1>Welcome to my app</h1>
-      <MyButton/>
-    </div>
-  )
-}
+export default App;
